@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title></title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+	html {
+		height: 100%;
+		background: #f2f2f2;
+	}
+	html .main {
+		background: #f2f2f2;
+	}
+	.no-collect {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+	.no-collect img {
+		width: 5.30666667rem;
+		height: 4.16rem;
+	}
+	.no-collect p {
+		text-align: center;
+		color: #999;
+	}
+</style>
+</head>
+<body>
+<div class="main main-3">
+	<div class="no-collect">
+		<img src="img/empty.png" alt="" />
+		<p>暂无收藏数据</p>
+	</div>
+</div>
+<div class="bottom"></div>
+<div class="fixed-bottom tab-bar tab-bar3">
+	<a href="index.html">
+		<span>首页</span>
+	</a>
+	<a href="selectroom.html">
+		<span>选房</span>
+	</a>
+	<a href="javascript:;" class="active">
+		<span>收藏</span>
+	</a>
+	<a href="my.html">
+		<span>我的</span>
+	</a>
+</div>
+<div class="toast" style="display: none">
+    <div class="toast-block">
+        <span>提示内容</span>
+    </div>
+</div>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+	function showToast(str,timer) {
+		var str = str || '错误',
+			timer = timer || 1000; 
+        $('.toast').fadeIn();
+        $('.toast span').html(str);
+        $('.toast .toast-block').animate({
+            'opacity':1,
+            'top': '45%'
+        });
+        setTimeout(function(){
+            $('.toast .toast-block').animate({
+                'opacity':0,
+                'top': '40%'
+            },function(){
+                $('.toast').fadeOut(200);
+            });
+        },timer);
+    }//消息提示框
+	
+</script>
+</body>
+</html>

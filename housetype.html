@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title>选房攻略</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/photoswipes.css">
+<link rel="stylesheet prefetch" href="css/default-skin.css">
+</head>
+<body>
+	<div class="room-details pos-rel">
+	    <div class="room_img_wrap">
+	        <img src="img/room-img.jpg" onerror="javascript:this.src='//img2.xafc.com/noimg.gif';" width="100%" height="100%"/>
+	    </div>
+	</div>
+	<div class="main main-3">
+	    <div class="details-content clearFix" style="margin-top: 0.32rem;">
+	        <div class="fl">
+	            <p>户型名称：<span class="area" style="color: #333;">某某户型</span></p>
+	            <p>户型结构：<span class="area">三室两厅两卫</span></p>
+	        </div>
+	        <div class="fl">
+	            <p>建筑面积：<span class="shape" style="color: #333;">180㎡</span></p>
+	        </div>
+	    </div>
+	    <p class="details-info">户型简介：<span>这是一大段简洁文字这是一大段简洁文字这是一大段简洁文字</span><p>
+	</div>
+	<div class="bg0"></div>
+	<div class="main main-3">
+	    <h4 class="build-title">楼栋直达</h4>
+	    <div class="build-num">
+	        <div class="build-wrap clearFix">
+	            <a href="selectroom.html"><span>10</span>栋</a>
+				<a href="selectroom.html"><span>11</span>栋</a>
+				<a href="selectroom.html"><span>12</span>栋</a>
+				<a href="selectroom.html"><span>13</span>栋</a>
+				<a href="selectroom.html"><span>14</span>栋</a>
+				<a href="selectroom.html"><span>15</span>栋</a>
+	        </div>
+	    </div>
+	</div>
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="pswp__bg" style="opacity: .7!important;"></div>
+	    <div class="pswp__scroll-wrap">
+	        <div class="pswp__container">
+	            <div class="pswp__item"></div>
+	            <div class="pswp__item"></div>
+	            <div class="pswp__item"></div>
+	        </div>
+	        <div class="pswp__ui pswp__ui--hidden">
+	            <div class="pswp__top-bar" style="opacity: 0!important;">
+	                <div class="pswp__counter"></div>
+	                <!--<button class="pswp__button pswp__button&#45;&#45;close" title="Close (Esc)"></button>-->
+	                <!--<button class="pswp__button pswp__button&#45;&#45;share" title="Share"></button>-->
+	                <!--<button class="pswp__button pswp__button&#45;&#45;fs" title="Toggle fullscreen"></button>-->
+	                <!--<button class="pswp__button pswp__button&#45;&#45;zoom" title="Zoom in/out"></button>-->
+	                <div class="pswp__preloader">
+	                    <div class="pswp__preloader__icn">
+	                        <div class="pswp__preloader__cut">
+	                            <div class="pswp__preloader__donut"></div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+	                <div class="pswp__share-tooltip"></div>
+	            </div>
+	            <!--<button class="pswp__button pswp__button&#45;&#45;arrow&#45;&#45;left" title="Previous (arrow left)"></button>-->
+	            <!--<button class="pswp__button pswp__button&#45;&#45;arrow&#45;&#45;right" title="Next (arrow right)"></button>-->
+	            <div class="pswp__caption">
+	                <div class="pswp__caption__center"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script src="js/photoswipe.min.js"></script>
+	<script src="js/photoswipe-ui-default.min.js"></script>
+	<script type="text/javascript">
+	    //展示户型图
+	    function openPhotoSwipe(items) {
+	        var pswpElement = document.querySelectorAll('.pswp')[0];
+	        var options = {
+	            tapToClose: true,
+	            showAnimationDuration: 0,
+	            hideAnimationDuration: 0,
+	        };
+	        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+	        gallery.init();
+	        gallery.options.escKey = false;
+	    }//图片展示功能
+	
+	    $('.room_img_wrap img').on('click',function(){
+	        var items = [{
+	            src: $(this).attr('src'),
+	            w: $(this).width(),
+	            h: $(this).height()
+	        }];
+	        openPhotoSwipe(items);
+	    });
+	</script>
+</body>
+</html>

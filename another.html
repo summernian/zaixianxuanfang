@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title>收藏</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/dragula.css"/>
+</head>
+<style type="text/css">
+	/** { touch-action: manipulation; }*/
+	html {
+		height: 100%;
+		background: #f2f2f2;
+	}
+	html .main {
+		background: #f2f2f2;
+	}
+	[data-dpr="1"] .gu-mirror h3 {
+	    font-size: 17px;
+	}
+	[data-dpr="2"] .gu-mirror h3 {
+	    font-size: 34px;
+	}
+	[data-dpr="3"] .gu-mirror h3 {
+	    font-size: 51px;
+	}
+	[data-dpr="1"] .gu-mirror p {
+	    font-size: 14px;
+	}
+	[data-dpr="2"] .gu-mirror p {
+	    font-size: 28px;
+	}
+	[data-dpr="3"] .gu-mirror p {
+	    font-size: 42px;
+	}
+</style>
+<body>
+	<div class="msg-bg3">
+    	<p class="">已收藏<span>0</span>套房源，点击右侧【排序】按钮，拖拽调整房源顺序</p>
+   	</div>
+	<div class="main main-3">
+		<ul id="foo" class="clearFix">
+			<li sort-id="1" class="state-green">
+				<i class="sort-num">1</i>
+				<h3>楼栋-单元-号 <i class="title">可选</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+				<i class="js-remove"></i>
+			</li>
+        	<li sort-id="2" class="state-red">
+        		<i class="sort-num">2</i>
+        		<h3>楼栋-单元-号 <i class="title">已售</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="3" class="state-gray">
+        		<i class="sort-num">3</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="4" class="state-gray">
+        		<i class="sort-num">4</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="5" class="state-gray">
+        		<i class="sort-num">5</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="6" class="state-gray">
+        		<i class="sort-num">6</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="7" class="state-gray">
+        		<i class="sort-num">7</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="8" class="state-gray">
+        		<i class="sort-num">8</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+        	<li sort-id="9" class="state-gray">
+        		<i class="sort-num">9</i>
+        		<h3>楼栋-单元-号 <i class="title">交易中</i></h3>
+				<p>房源总价：<span>180.08万元</span></p>
+				<p>建筑面积：<span>106.61㎡</span></p>
+				<p>该房源已有<i class="orange">2人</i>收藏</p>
+        		<i class="js-remove"></i>
+        	</li>
+		</ul>
+	</div>
+	<div class="bottom"></div>
+	<div class="fixed-bottom tab-bar tab-bar3">
+		<a href="index.html">
+			<span>首页</span>
+		</a>
+		<a href="collect.html">
+			<span>选房</span>
+		</a>
+		<a href="javascript:;" class="active">
+			<span>收藏</span>
+		</a>
+		<a href="my.html">
+			<span>我的</span>
+		</a>
+   	</div>
+   	<div class="refresh" onClick="refresh()"></div>
+   	<div class="sort" onClick="startSort(this)">排序</div>
+   	<div class="weui-mask"></div>
+   	<div class="modal" id="slideModal">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <span class="close"></span>
+	                <h4 class="modal-title">0栋0单元-000</h4>
+	            </div>
+	            <div class="modal-body">
+	                <div class="form-content clearFix">
+	                	<div class="fl">
+	                		<p>房源总价：<span class="all_price">80.08万元</span></p>
+	                		<p>建筑面积：<span class="area">110㎡</span></p>
+	                		<p>该房源已有<i class="collect">2人</i>收藏</p>
+	                	</div>
+	                	<div class="fl">
+	                		<p>单价：<span class="singer_price">11000元/㎡</span></p>
+	                		<p>户型结构：<span class="shape">三室两厅</span</p>
+	                		<p><a href="#" class="link pos-rel">点击了解房源详情</a></p>
+	                	</div>
+	                </div>
+                    <div class="form-btn clearFix">
+                    	<a href="javascript:;" id="collection" class="fl active"><i class="icon-star"></i><span>已收藏</span></a>
+                        <a href="javascript:;" class="btn btn-submit disabled fl pos-rel" id="addCustomer">
+                        	<div class="center">
+	                        	<span>立即选房</span>
+	                        	<p class="">距离模拟选房开始：<span id="date_day">0</span>天<span id="date_hour">0</span>时<span id="date_minute">0</span>分<span id="date_second">0</span>秒</p>
+                        	</div>
+                        </a>
+                    </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script src="js/dragula.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var glob = {};
+	  	//禁止下拉
+		document.body.addEventListener('touchmove' , function(e){
+		　　var e = e || window.event;
+			if($('.sort').hasClass('startSort') ) {
+				e.preventDefault();
+			}
+		},{passive:false})
+		
+		//排序
+		var _sort = dragula([$('#foo')[0]],{
+			moves: function(el, source, handle, sibling){
+				if($('.sort').hasClass('startSort') ){
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
+		//拖动开始
+		_sort.on('drag',function(el,container){
+			glob.color = $(el).css('background');
+	 		$(el).css('background','deepskyblue')
+		})
+		//拖动结束
+		_sort.on('dragend',function(el){
+			var id_arr='';
+			for(var i=0, len=$('#foo').get(0).children.length; i<len; i++){
+				id_arr += ',' + $('#foo').get(0).children[i].getAttribute('sort-id');
+			}
+			id_arr=id_arr.substr(1);
+			$(el).css('background',glob.color)
+			
+			//重拍序列号
+			$.each($('#foo').get(0).children,function(k,i){
+				$(i).find('.sort-num').html(k+1)
+			})
+		})
+			
+//		console.log(_sort.dragging)
+		
+		function refresh(){
+            window.location.reload();
+       	}
+		
+		//点击开始排序事件
+		function startSort(that){
+			var _this = $(that);
+			
+			if(_this.hasClass('startSort') ) {
+				_this.html('排序').removeClass('startSort');
+//				_sort.options.disabled = true;
+				
+				//此处发送ajax
+				
+			} else {
+				_this.html('<i>完成</i><i>排序</i>').addClass('startSort');
+//				_sort.options.disabled = false;
+			}
+		}
+		
+		//点击弹层事件
+		$('#foo li.state-green').on('click',function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.target.tagName == "I") {
+				return;
+			}
+			
+		 	$('.weui-mask').addClass('weui-animate-fade-in').removeClass('weui-animate-fade-out').show();
+            $('#slideModal').removeClass('weui-animate-slide-down').addClass('weui-animate-slide-up').show();
+		});
+		
+		//关闭底部弹窗
+		$(document.body).on('click', '.modal-header .close', function () {
+            $('.weui-mask').removeClass('weui-animate-fade-in').addClass('weui-animate-fade-out').fadeOut('fast');
+            $('#slideModal').removeClass('weui-animate-slide-up').addClass('weui-animate-slide-down').fadeOut('fast');
+       	});
+		$(document.body).on('click', '.weui-mask', function () {
+            $('.weui-mask').removeClass('weui-animate-fade-in').addClass('weui-animate-fade-out').fadeOut('fast');
+            $('#slideModal').removeClass('weui-animate-slide-up').addClass('weui-animate-slide-down').fadeOut('fast');
+        });
+		
+		//删掉收藏的内容
+		$('.js-remove').on('click',function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			console.log($(this).parents('li').attr('sort-id'))
+//			$(this).parents('li').remove()
+			
+			var arr = [1,2,3]
+			$.ajax({
+				type:"get",
+				url:"/",
+				async:true,
+				data: {a:arr},
+				success: function(res){
+					
+				},
+				error: function(res){
+					alert('cuowu')
+				}
+			});
+
+		})
+	</script>
+</body>
+</html>

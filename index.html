@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title>首页</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="build_details pos-rel">
+		<span class="mask pos-abs"></span>
+		<p class="build_name">某楼盘名称</p>
+		<p class="build_num">房源数：<span id="nums">1380</span>套</p>
+	</div>
+	<div class="main main-3">
+		<a href="selectroom.html" class="links">
+			<div class="select-group pos-rel imitate disabled">
+				<div class="select_time">
+					<p class="start_time">开始：<span>2018年10月18日 09:00</span></p>
+					<p class="end_time">结束：<span>2018年10月20日 10:00</span></p>
+				</div>
+				<div class="select_type">
+					<span class="type_modal">未开始</span>
+				</div>
+			</div>
+		</a>
+		<a href="selectroom.html" class="links">
+			<div class="select-group pos-rel formal disabled">
+				<div class="select_time">
+					<p class="start_time">开始：<span>2018年10月18日 09:00</p>
+					<p class="end_time">结束：<span>2018年10月20日 10:00</span></p>
+				</div>
+				<div class="select_type">
+					<span class="type_modal">未开始</span>
+				</div>
+			</div>
+		</a>
+		<div class="countdown_wrap">
+			<p class="countdown"><i class="changeModel">距离模拟选房结束还剩</i><span class="data_day">-</span>天<span class="data_hour">-</span>时<span class="data_minute">-</span>分<span class="data_second">-</span>秒</p>
+		</div>
+	</div>
+	<div class="bg0"></div>
+	<div class="main main-3">
+		<h2>可选户型</h2>
+		<ul class="house_list">
+			<a href="housetype.html" style="color:#000;">
+				<li class="clearFix pos-rel">
+					<img src="img/room-type.jpg" class="room-type fl" />
+					<div class="room-info fl">
+						<h3>A户型</h3>
+						<p>3室2厅</p>
+						<p>建筑面积：<span>99㎡</span></p>
+					</div>
+					<p class="room-select fr">可选房源：300套</p>
+				</li>
+			</a>
+			<li class="clearFix pos-rel">
+				<img src="img/room-type.jpg" class="room-type fl" />
+				<div class="room-info fl">
+					<h3>A户型</h3>
+					<p>3室2厅</p>
+					<p>建筑面积：<span>99m</span></p>
+				</div>
+				<p class="room-select fr">可选房源：300套</p>
+			</li>
+			<li class="clearFix pos-rel">
+				<img src="img/room-type.jpg" class="room-type fl" />
+				<div class="room-info fl">
+					<h3>A户型</h3>
+					<p>3室2厅</p>
+					<p>建筑面积：<span>99m</span></p>
+				</div>
+				<p class="room-select fr">可选房源：300套</p>
+			</li>
+		</ul>
+	</div>
+	<div class="bg2 pos-rel">
+		<div class="center">
+			<div style="color: #999;">针对在线选房有任何疑问，请联系售楼处</div>
+			<div><a href="tel:0551-62352222" style="color: #EB6120">0551-62352222</a></div>
+		</div>
+	</div>
+	<div class="bottom"></div>
+	<div class="fixed-bottom tab-bar">
+		<a href="javascript:;" class="active">
+			<span>首页</span>
+		</a>
+		<a href="selectroom.html">
+			<span>选房</span>
+		</a>
+		<a href="collect.html">
+			<span>收藏</span>
+		</a>
+		<a href="mock.html">
+			<span>我的</span>
+		</a>
+   	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var interval = 1000, // 定时器的执行时间
+				count = 0, // 定时器执行次数
+				startTime = new Date().getTime(); //当前页面的打开时间
+			
+			var now_time = new Date('2020/04/20 17:30:05').getTime(), //当前时间， ps：以服务器传入时间为准
+				imitate_time_start = new Date('2020/04/20 17:30:10').getTime(), //模拟选房倒计时开始时间
+				imitate_time_end = new Date('2020/04/20 17:30:20').getTime(), //模拟选房倒计时结束时间
+				
+				formal_time_start = new Date('2020/04/20 17:30:30').getTime(),//正式选房开始时间
+				formal_time_end = new Date('2020/04/20 17:30:40').getTime(); //正式选房结束时间
+			
+			var im_start = imitate_time_start - now_time, // 距离模拟选房开始的时间
+				im_end = imitate_time_end - now_time, // 距离模拟选房结束的时间
+				fo_start = formal_time_start - now_time, // 距离正式选房开始的时间
+				fo_end = formal_time_end - now_time; // 距离正式选房结束的时间
+			
+			if(fo_end > 0) {
+				// 选房没结束
+				console.log("倒计时，选房进行中！");
+				var timeCounter = setTimeout(countDownStart,interval);
+			} else {
+				// 选房结束
+				console.log("时间终了，选房结束！");
+				$('.countdown').html('开盘已结束').hide().parent().css('height',0);
+				$('.imitate .select_type').addClass('ending').find('.type_modal').html('已结束');
+	            $('.formal .select_type').addClass('ending').find('.type_modal').html('已结束');
+	            $('.imitate').addClass('disabled');
+	            $('.formal').addClass('disabled');
+			}
+			
+			// 倒计时逻辑
+			function countDownStart(){
+	     		// 开始执行的次数
+	       		count++;
+	       		var diff = new Date().getTime() - (startTime + count * interval);
+	       		var nextTime = interval - diff;
+	       		if (nextTime < 0) { nextTime = 0 };
+	       		
+	       		if(im_start > 0) {
+					// 模拟选房未开始
+					im_start -= interval;
+					im_end -= interval;
+					fo_start -= interval;
+					fo_end -= interval;
+					
+					console.log("模拟选房开始倒计时剩余：" + (im_start/1000).toFixed(1) + "s");
+					$('.changeModel').html('距离模拟选房开始还剩');
+					ShowCountDown(im_start);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(im_start <= 0 && im_end > 0) {
+					// 模拟选房开始
+					im_end -= interval;
+					fo_start -= interval;
+					fo_end -= interval;
+					
+					console.log("模拟选房结束倒计时剩余：" + (im_end/1000).toFixed(1) + "s");
+					$('.changeModel').html('距离模拟选房结束还剩');
+					$('.imitate .select_type').addClass('going').find('.type_modal').html('进行中')
+            		$('.imitate').removeClass('disabled');
+					ShowCountDown(im_end);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(im_end <= 0 && fo_start > 0) {
+					// 模拟选房结束，正式选房未开始
+					fo_start -= interval;
+					fo_end -= interval;
+					
+					console.log("正式选房开始倒计时剩余：" + (fo_start/1000).toFixed(1) + "s");
+					$('.changeModel').html('距离正式选房开始还剩');
+            		$('.imitate .select_type').addClass('ending').find('.type_modal').html('已结束')
+            		$('.imitate').addClass('disabled');
+					ShowCountDown(fo_start);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(fo_start <= 0 && fo_end > 0) {
+					// 正式选房开始
+					fo_end -= interval;
+					
+					console.log("正式选房结束倒计时剩余：" + (fo_end/1000).toFixed(1) + "s");
+					$('.changeModel').html('距离正式选房结束还剩');
+					$('.imitate .select_type').addClass('ending').find('.type_modal').html('已结束');
+		          	$('.formal .select_type').addClass('going').find('.type_modal').html('进行中');
+		          	$('.imitate').addClass('disabled');
+		          	$('.formal').removeClass('disabled');
+					ShowCountDown(fo_end);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(fo_end <= 0) {
+					// 选房结束
+					console.log('选房结束！');
+					$('.countdown').html('开盘已结束').hide().parent().css('height',0);
+					$('.imitate .select_type').addClass('ending').find('.type_modal').html('已结束');
+		            $('.formal .select_type').addClass('ending').find('.type_modal').html('已结束');
+		            $('.imitate').addClass('disabled');
+		            $('.formal').addClass('disabled');
+					ShowCountDown(fo_end);
+					
+					clearTimeout(timeCounter);
+				}
+	 		}
+			
+			function ShowCountDown(times) {
+			 	var time = parseInt(times / 1000);
+	            var day = Math.floor(time / (60 * 60 * 24));
+	            var hour = Math.floor((time - day * 24 * 60 * 60) / 3600);
+	            var minute = Math.floor((time - day * 24 * 60 * 60 - hour * 3600) / 60);
+	            var second = Math.floor(time - day * 24 * 60 * 60 - hour * 3600 - minute * 60);
+	            
+                $('.data_day').html(day);
+                $('.data_hour').html(hour);
+                $('.data_minute').html(minute);
+                $('.data_second').html(second);
+			}
+		});
+		
+		//切换后台导致程序不执行的bug优化
+		document.addEventListener('visibilitychange',function() {
+			if (document.visibilityState == 'visible') {
+				window.location.reload(location.href+'?v='+Math.random());
+			}
+		});
+		
+		$('.links').on('click',function(e){
+			//阻止默认事件
+			e.preventDefault();
+			var $this = $(this);
+			
+			if($this.find('.select-group').hasClass('disabled')) {
+				return
+			} else {
+				window.location.href = $this.attr('href');
+			}
+			
+		});
+		
+	</script>
+</body>
+</html>

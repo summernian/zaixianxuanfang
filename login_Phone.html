@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<title>登录</title>
+</head>
+<body>
+	<div class="banner pos-rel">
+		<h1 class="company_name">某楼盘</h1>
+		<p class="company_title">线上开盘系统</p>
+	</div>
+    <div class="main main-1">
+        <div class="form-group pos-rel">
+        	<span id="icon_user"></span>
+            <input type="text" placeholder="请输入售楼部预留真实姓名">
+        </div>
+        <div class="form-group pos-rel">
+        	<span id="icon_phone"></span>
+            <input type="number" pattern="\d*" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入售楼部预留手机号">
+        </div>
+        <div class="form-group pos-rel">
+        	<span id="icon_code"></span>
+        	<span id="get_code" onclick="getCode(this)">获取验证码</span>
+            <input id="code" style="width: 80%;" type="number" pattern="\d*" placeholder="请输入验证码">
+        </div>
+        <button class="btn btn-block btn-login"></button>
+    </div>
+    <div class="toast" style="display: none">
+        <div class="toast-block">
+            <span>提示内容</span>
+        </div>
+    </div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script src="js/mock.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+		
+		function showToast(str) {
+			str = str || '错误提示'
+	        $('.toast').fadeIn();
+	        $('.toast span').html(str);
+	        $('.toast .toast-block').animate({
+	            'opacity':1,
+	            'top': '38%'
+	        });
+	        setTimeout(function(){
+	            $('.toast .toast-block').animate({
+	                'opacity':0,
+	                'top': '35%'
+	            },function(){
+	                $('.toast').fadeOut(200);
+	            });
+	        },1000);
+	    }//消息提示框
+	</script>
+</body>
+</html>

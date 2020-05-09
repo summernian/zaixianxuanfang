@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title>登录</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="toast" style="display: none">
+	    <div class="toast-block">
+	        <span>提示内容</span>
+	    </div>
+	</div>
+	<div class="banner pos-rel">
+		<h1 class="company_name">某楼盘名称</h1>
+	</div>
+    <div class="main main-1">
+        <div class="form-group pos-rel">
+        	<span id="icon_user"></span>
+            <input type="text" name="username" placeholder="请输入售楼部预留真实姓名">
+        </div>
+        <div class="form-group pos-rel">
+        	<span id="icon_IDcard"></span>
+            <input type="number" name="number" pattern="\d*" placeholder="请输入售楼部预留身份证号">
+        </div>
+        <div class="form-group pos-rel">
+        	<span id="icon_password"></span>
+        	<span id="password_icon" onclick="hideShowPsw(this)"></span>
+            <input id="password" name="password" type="password" placeholder="请输入密码">
+        </div>
+        <button class="btn btn-block btn-login" onclick="Submit()"></button>
+    </div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script src="js/mock.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		// 模拟登陆接口
+		Mock.mock('index',{
+			"code|1-2": 0,
+			"msg": "登陆成功！"
+		});
+		
+		function hideShowPsw(that){
+			var _that = $(that),
+				_psd = _that.siblings('#password');
+			
+			if(_psd.attr('type') == 'password'){
+				_psd.attr('type','text');
+				_that.css('background-position-x','-0.7466667rem');
+			} else {
+				_psd.attr('type','password');
+				_that.css('background-position-x','0');
+			}
+		}
+		
+		function Submit(){
+			var username = $('input[name="username"]').val();
+			var number = $('input[name="number"]').val();
+			var password = $('input[name="password"]').val();
+			if(!username){
+				showToast('请输入正确姓名');
+				return false;
+			}
+			if(!number){
+				showToast('请输入正确身份证号');
+				return false;
+			}
+			if(!password){
+				showToast('请输入正确密码');
+				return false;
+			}
+			$.ajax({
+				type: 'post',
+				url:  "index",
+				dataType:"json",
+				data:{
+					username:username,
+					number:number,
+					password:password
+				},
+				success: function(result) {
+					if (result.code == 1) {
+						showToast(result.msg);
+						setTimeout(function(){
+							window.location.href = 'agreement.html';
+						},1000)
+					} else {
+						showToast("登陆失败，请重试！")
+					}
+				},
+				error: function (err) {
+					showToast('网络异常，请重新登陆！')
+				}
+			})
+		}
+		
+		function showToast(str,timer) {
+			var str = str || '这是错误提示',
+				timer = timer || 1000; 
+		    $('.toast').fadeIn(100);
+		    $('.toast span').html(str);
+		    $('.toast .toast-block').animate({
+		        'opacity':1,
+		        'top': '45%'
+		    },100);
+		    setTimeout(function(){
+		        $('.toast .toast-block').animate({
+		            'opacity':0,
+		            'top': '40%'
+		        },function(){
+		            $('.toast').fadeOut(100);
+		        });
+		    },timer);
+		}//消息提示框
+		
+	</script>
+</body>
+</html>

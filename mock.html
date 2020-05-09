@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title>登录</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script src="js/mock.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		// 模拟登陆接口
+		Mock.mock('index',{
+			"code|1-2": 1,
+			"msg": "登陆成功！"
+		});
+		var Random = Mock.Random;
+		var data = Mock.mock({
+			'list|4': [{
+				'id|+1': 1,
+				'number|1-10': 7,
+				// 英文姓名
+				'name' :'@name',
+				// 颜色
+				'color': '@color',
+				// 英文标题
+				'title': '@title',
+				// 链接
+				'url': '@url("http")',
+				// 邮箱
+				'email': '@email',
+				// 图片
+				'image': Random.image('200x200', '#50B347', '#FFF', 'png', 'HelloWorld'),
+				// 时间
+				'date': '@date("yyyy-MM-dd HH:mm:ss")',
+				'date2': '@dateTime',
+				// 汉字
+				'ctitle': '@ctitle(8)',
+				// 汉字姓名
+				'canme': '@cname()',
+				// 地址
+				'cadd': '@province' + '@city' + '@county',
+				// 手机号
+				'phone': /^1[385][1-9]\d{8}/
+			}]
+		});
+		console.log(JSON.stringify(data, null, 4))
+	</script>
+</body>
+</html>

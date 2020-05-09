@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<script type="text/javascript" src="js/flexible.js"></script>
+<title>选择楼栋</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="msg-bg3">
+    	<p class=""><i class="icon-horn"></i><em class="info_before">距离模拟选房开始还剩</em>：<span id="date_day"> - </span>天<span id="date_hour"> - </span>时<span id="date_minute"> - </span>分<span id="date_second"> - </span>秒<em class="imitate_after">,模拟选房拍下无效</em></p>
+    </div>
+	<div class="main main-3">
+		<ul>
+			<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">24栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">23栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">22栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">21栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">20栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">19栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">18栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+	       	<li class="item pos-rel">
+	            <a href="room.html">
+	                <i class="icon icon-house"></i>
+	                <p>
+	                	<span class="house-num">16栋</span>
+	                	<span class="house-sale">房源数: <i style="color: #EB6120;">300</i>套</span>
+	                </p>
+	                <i class="icon icon-arrow2"></i>
+	            </a>
+	       	</li>
+       	</ul>
+	</div>
+	<div class="bottom"></div>
+	<div class="fixed-bottom tab-bar tab-bar2">
+		<a href="index.html">
+			<span>首页</span>
+		</a>
+		<a href="javascript:;" class="active">
+			<span>选房</span>
+		</a>
+		<a href="collect.html">
+			<span>收藏</span>
+		</a>
+		<a href="my.html">
+			<span>我的</span>
+		</a>
+   	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var interval = 1000, // 定时器的执行时间
+				count = 0, // 定时器执行次数
+				startTime = new Date().getTime(); //当前页面的打开时间
+			
+			var now_time = new Date('2020/04/20 17:30:05').getTime();//当前时间
+			var imitate_time_start = new Date('2020/04/20 17:30:10').getTime();//模拟开始时间
+			var imitate_time_end = new Date('2020/04/20 17:30:20').getTime();//模拟结束时间
+			var formal_time_start = new Date('2020/04/20 17:30:30').getTime();//正式开始时间
+			var formal_time_end = new Date('2020/04/20 17:30:40').getTime();//正式结束时间
+			
+			var im_start = imitate_time_start - now_time, // 距离模拟选房开始的时间
+				im_end = imitate_time_end - now_time, // 距离模拟选房结束的时间
+				fo_start = formal_time_start - now_time, // 距离正式选房开始的时间
+				fo_end = formal_time_end - now_time; // 距离正式选房结束的时间
+			
+			if(fo_end > 0) {
+				// 选房没结束
+				var timeCounter = setTimeout(countDownStart,interval);
+			} else {
+				// 选房结束
+				console.log('选房结束！');
+				$('.msg-bg3').html('开盘已结束').css({
+					'color': '#999',
+					'textAlign': 'center'
+				});
+			}
+			
+			// 倒计时逻辑
+			function countDownStart(){
+				// 开始执行的次数
+				count++;
+				var diff = new Date().getTime() - (startTime + count * interval);
+				var nextTime = interval - diff;
+				if (nextTime < 0) { nextTime = 0 };
+				
+				
+				if(im_start > 0) {
+					// 模拟选房未开始
+					im_start -= interval;
+					im_end -= interval;
+					fo_start -= interval;
+					fo_end -= interval;
+					
+					console.log("模拟选房开始倒计时剩余：" + im_start + "ms");
+					$('.info_before').html('距离模拟选房开始还剩');
+					ShowCountDown(im_start);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(im_start <= 0 && im_end > 0) {
+					// 模拟选房开始
+					im_end -= interval;
+					fo_start -= interval;
+					fo_end -= interval;
+					
+					console.log("模拟选房结束倒计时剩余：" + im_end + "ms");
+					$('.info_before').html('距离模拟选房结束还剩');
+					ShowCountDown(im_end);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(im_end <= 0 && fo_start > 0) {
+					// 模拟选房结束，正式选房未开始
+					fo_start -= interval;
+					fo_end -= interval;
+					
+					console.log("正式选房开始倒计时剩余：" + fo_start + "ms");
+					$('.info_before').html('距离正式选房开始还剩');
+					$('.imitate_after').remove();
+					ShowCountDown(fo_start);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(fo_start <= 0 && fo_end > 0) {
+					// 正式选房开始
+					fo_end -= interval;
+					
+					console.log("正式选房结束倒计时剩余：" + fo_end + "ms");
+					$('.info_before').html('正式选房已开始，距离结束还剩');
+		//			$('.imitate_after').remove();
+					ShowCountDown(fo_end);
+					
+					timeCounter = setTimeout(countDownStart,nextTime);
+					
+				} else if(fo_end <= 0) {
+					// 选房结束
+					console.log('选房结束！');
+					ShowCountDown(fo_end);
+					$('.msg-bg3').html('开盘已结束').css({
+						'color': '#999',
+						'textAlign': 'center'
+					});
+					
+					clearTimeout(timeCounter);
+				}
+			}
+	        
+			function ShowCountDown(times) {
+			 	var time = parseInt(times / 1000);
+			    var day = Math.floor(time / (60 * 60 * 24));
+			    var hour = Math.floor((time - day * 24 * 60 * 60) / 3600);
+			    var minute = Math.floor((time - day * 24 * 60 * 60 - hour * 3600) / 60);
+			    var second = Math.floor(time - day * 24 * 60 * 60 - hour * 3600 - minute * 60);
+			    
+			    $('#date_day').html(' ' + day);
+			    $('#date_hour').html(' ' + hour);
+			    $('#date_minute').html(' ' + minute);
+			    $('#date_second').html(' ' + second);
+			}
+			
+	        document.addEventListener('visibilitychange',function() {
+				if (document.visibilityState == 'visible') {
+					window.location.reload(location.href+'?v='+Math.random());
+				}
+	       	})
+		});
+	</script>
+</body>
+</html>
